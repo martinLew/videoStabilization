@@ -1,0 +1,14 @@
+function [verticeX, verticeY] = getVerticeXY(nsz, gridLen)
+    h = nsz(1);
+    w = nsz(2);
+    if mod(h, gridLen) ~= 0 || mod(w, gridLen) ~= 0
+        display('the rows is not valid');
+        % exit(1);
+    end
+    x = 1:gridLen:(h+1);
+    x(end) = x(end) - 1;
+    y = 1:gridLen:(w+1);
+    y(end) = y(end) - 1;
+    
+    
+end

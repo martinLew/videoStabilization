@@ -1,0 +1,23 @@
+function [gu, gv] = calVerticePartial(verX, verY, It, Ix, Iy, gridLen)
+    % TODO(yiminglu): could we transfer the 'for' to operation of matrix
+    h = size(It, 1);
+    w = size(It, 2);
+    for i = verY
+        for j = verX
+            lin = (i-gridLen+1):(i+gridLen-1);
+            row = (j-gridLen+1):(j+gridLen-1);
+            indl = find(lin<1 | lin>w);
+            lin(indl) = [];
+            indr = find(row<1 | row>h);
+            row(indr) = [];
+            
+            e = It(row, lin);
+            Gx = Ix(row, lin);
+            Gy = Iy(row, lin);
+            y = meshgrid(lin, row);
+            x = meshgrid(row, lin);
+            x = x';
+            omi = 1-abs(x-j)
+        end
+    end
+end
